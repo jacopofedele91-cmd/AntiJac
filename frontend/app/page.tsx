@@ -168,9 +168,9 @@ export default function Home() {
                         <div className="absolute inset-0 bg-pink-light/70 mix-blend-multiply" />
                         <div className="absolute inset-0 bg-[#DE4190]/50" />
 
-                        <div className="relative z-10 w-full h-full flex flex-col items-center justify-between py-1">
+                        <div className="relative z-10 w-full h-full flex flex-col items-center justify-between py-1.5">
                             <div className="w-full">
-                                <h2 className="text-white font-black text-[15px] tracking-tighter mb-1 drop-shadow-md">IDRATAZIONE</h2>
+                                <h2 className="text-white font-black text-[15px] uppercase tracking-tight mb-1 drop-shadow-md">IDRATAZIONE</h2>
                                 <p className="text-white font-medium text-xs leading-tight drop-shadow-sm">Il tuo livello di idratazione:</p>
                             </div>
 
@@ -204,11 +204,10 @@ export default function Home() {
                             </button>
 
                             <div className="text-center text-white leading-tight mt-auto w-full">
-                                <div className="flex justify-center items-center gap-0.5 mb-2 mt-4">
+                                <div className="flex justify-center items-center mb-2 mt-4">
                                     <span className="font-extrabold text-[15px] uppercase drop-shadow-md tracking-tight">
                                         {glasses === 0 ? "Basso! Bevi" : (glasses < 4 ? "Forza, bevi!" : (glasses < maxGlasses ? "Continua così!" : "Idratata!"))}
                                     </span>
-                                    {glasses < maxGlasses && <span className="text-[14px] drop-shadow-sm ml-[-2px]">💧</span>}
                                 </div>
                                 <div className="text-[14px] font-bold opacity-100 bg-white/30 px-5 py-2 rounded-full inline-block border border-white/40 drop-shadow-sm shadow-inner tracking-wide">
                                     {glasses}/{maxGlasses} bicchieri
@@ -226,9 +225,9 @@ export default function Home() {
                         <Image src="/travel.png" alt="Umore" fill className="object-cover rounded-[2rem]" />
                         <div className="absolute inset-0 bg-pink-light/70 mix-blend-multiply rounded-[2rem]" />
                         <div className="absolute inset-0 bg-[#DE4190]/40 rounded-[2rem]" />
-                        <div className="relative z-10 w-full h-full flex flex-col items-center justify-between py-1">
+                        <div className="relative z-10 w-full h-full flex flex-col items-center justify-between py-1.5">
                             <div className="w-full">
-                                <h2 className="text-lemon-bright font-black text-lg tracking-wider mb-1">UMORE</h2>
+                                <h2 className="text-lemon-bright font-black text-[15px] uppercase tracking-tight mb-1 drop-shadow-md">UMORE</h2>
                                 <p className="text-white font-medium text-xs leading-tight drop-shadow-sm">
                                     {savedMood ? 'Il tuo umore oggi:' : 'Come ti senti?'}
                                 </p>
@@ -277,10 +276,10 @@ export default function Home() {
                         <Image src="/yoga.png" alt="Attività" fill className="object-cover" />
                         <div className="absolute inset-0 bg-pink-light/70 mix-blend-multiply" />
                         <div className="absolute inset-0 bg-[#DE4190]/40" />
-                        <div className="relative z-10 w-full h-full flex flex-col items-center justify-center">
-                            <div className="w-full mb-1">
-                                <h2 className="text-lemon-bright font-black text-lg tracking-wider mb-3 px-2 leading-tight drop-shadow-md">LE ATTIVITA'<br />di OGGI</h2>
-                                <p className="text-white font-medium text-xs mb-2 leading-tight drop-shadow-sm">La tua attività oggi:</p>
+                        <div className="relative z-10 w-full h-full flex flex-col items-center justify-between py-1.5">
+                            <div className="w-full">
+                                <h2 className="text-lemon-bright font-black text-[15px] uppercase tracking-tight mb-1 drop-shadow-md">LE ATTIVITA'<br />di OGGI</h2>
+                                <p className="text-white font-medium text-xs leading-tight drop-shadow-sm">La tua attività oggi:</p>
                             </div>
                             <p className="text-white font-bold text-sm drop-shadow-md mt-auto">
                                 <span className="font-medium text-white/90">Ore 8.30:</span><br />
@@ -292,9 +291,11 @@ export default function Home() {
                     {/* RACCONTACI DI TE! */}
                     <Link href="/oggi-mi-sento/chat" className="bg-[#DE4190] p-3 flex flex-col items-center justify-between text-center shadow-lg transition-transform hover:scale-[1.02] rounded-t-[2.5rem] rounded-br-[2.5rem] rounded-bl-sm relative min-h-[160px] overflow-hidden">
                         
-                        <div className="w-full flex-shrink-0 mt-1 mb-2">
-                            <h2 className="text-white font-black text-[0.95rem] tracking-wide leading-tight uppercase drop-shadow-sm break-words">Raccontaci<br />di te!</h2>
-                        </div>
+                        <div className="relative z-10 w-full h-full flex flex-col items-center justify-between py-1.5">
+                            <div className="w-full">
+                                <h2 className="text-white font-black text-[15px] uppercase tracking-tight mb-1 drop-shadow-md">Raccontaci<br />di te!</h2>
+                                <p className="text-white font-medium text-xs leading-tight drop-shadow-sm opacity-90">Inizia una chat:</p>
+                            </div>
                         
                         {/* Nuvoletta Gialla (pallone di risposta, spostata più in alto) */}
                         <div className="bg-[#D8EE00] p-3 w-[85%] flex flex-col items-center justify-center shadow-[0_4px_10px_rgba(0,0,0,0.3)] rounded-tl-[1.8rem] rounded-tr-[1.8rem] rounded-bl-[1.8rem] rounded-br-sm relative z-20 group mb-3">
@@ -313,7 +314,8 @@ export default function Home() {
                                 <div className="w-2 h-2 bg-white/80 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
                             </div>
                         </div>
-                    </Link>
+                    </div>
+                </Link>
 
                 </div>
             </div>
