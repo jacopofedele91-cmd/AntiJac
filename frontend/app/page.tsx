@@ -170,7 +170,7 @@ export default function Home() {
 
                         <div className="relative z-10 w-full h-full flex flex-col items-center justify-between py-1">
                             <div className="w-full">
-                                <h2 className="text-white font-black text-lg tracking-wide mb-1 drop-shadow-md">IDRATAZIONE</h2>
+                                <h2 className="text-white font-black text-[15px] tracking-tighter mb-1 drop-shadow-md">IDRATAZIONE</h2>
                                 <p className="text-white font-medium text-xs leading-tight drop-shadow-sm">Il tuo livello di idratazione:</p>
                             </div>
 
@@ -204,11 +204,11 @@ export default function Home() {
                             </button>
 
                             <div className="text-center text-white leading-tight mt-auto w-full">
-                                <div className="flex justify-center items-center gap-1.5 mb-2 mt-4">
-                                    <span className="font-extrabold text-[15px] uppercase drop-shadow-md tracking-wide">
-                                        {glasses === 0 ? "Basso! Bevi" : (glasses < 4 ? "Forza! Bevi!" : (glasses < maxGlasses ? "Continua così!" : "Idratata!"))}
+                                <div className="flex justify-center items-center gap-0.5 mb-2 mt-4">
+                                    <span className="font-extrabold text-[15px] uppercase drop-shadow-md tracking-tight">
+                                        {glasses === 0 ? "Basso! Bevi" : (glasses < 4 ? "Forza, bevi!" : (glasses < maxGlasses ? "Continua così!" : "Idratata!"))}
                                     </span>
-                                    {glasses < maxGlasses && <span className="text-[16px] drop-shadow-sm">💧</span>}
+                                    {glasses < maxGlasses && <span className="text-[14px] drop-shadow-sm ml-[-2px]">💧</span>}
                                 </div>
                                 <div className="text-[14px] font-bold opacity-100 bg-white/30 px-5 py-2 rounded-full inline-block border border-white/40 drop-shadow-sm shadow-inner tracking-wide">
                                     {glasses}/{maxGlasses} bicchieri
