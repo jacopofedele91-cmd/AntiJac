@@ -89,8 +89,8 @@ export default function OggiMiSento() {
                         <div className="absolute inset-0 bg-white/10 mix-blend-overlay"></div>
                         <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#BC5887] to-transparent"></div>
 
-                        <div className="relative w-full h-full flex items-center justify-center">
-                            <div className="relative w-[200px] h-[200px] flex items-center justify-center">
+                        <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+                            <div className="relative w-[170px] h-[170px] flex items-center justify-center">
                                 {!moodSelected ? (
                                     <>
                                         <h3 className="text-[#D8EE00] font-black text-lg tracking-wider text-center leading-tight z-10 uppercase drop-shadow-[0_2px_3px_rgba(0,0,0,0.6)]">
@@ -99,9 +99,9 @@ export default function OggiMiSento() {
                                         {/* Emojis Circle */}
                                         {emojis.map((em) => {
                                             const rad = (em.angle * Math.PI) / 180;
-                                            const radius = 86; // Increased radius to give more space around text
+                                            const radius = 70; // Reduced radius to keep emojis inside card on mobile
                                             const x = Math.cos(rad) * radius;
-                                            const y = Math.sin(rad) * radius + 10; // Added vertical offset to move icons down
+                                            const y = Math.sin(rad) * radius + 8; // Slight vertical offset
                                             const isSelected = mood === em.id;
 
                                             return (
@@ -139,8 +139,8 @@ export default function OggiMiSento() {
                                                     }}
                                                 >
                                                     <div className={`rounded-full flex items-center justify-center transition-all ${isSelected
-                                                        ? 'w-[52px] h-[52px] bg-[#D8EE00]/20 shadow-[0_0_30px_rgba(216,238,0,0.8)] border-[3px] border-[#D8EE00] mb-1'
-                                                        : 'w-[48px] h-[48px] bg-white/20 z-10 border-2 border-white backdrop-blur-sm mb-1 hover:bg-white/30 shadow-md'
+                                                        ? 'w-[44px] h-[44px] bg-[#D8EE00]/20 shadow-[0_0_30px_rgba(216,238,0,0.8)] border-[3px] border-[#D8EE00] mb-1'
+                                                        : 'w-[40px] h-[40px] bg-white/20 z-10 border-2 border-white backdrop-blur-sm mb-1 hover:bg-white/30 shadow-md'
                                                         }`}>
                                                         <div className="w-[85%] h-[85%] relative drop-shadow-[0_4px_6px_rgba(0,0,0,0.4)]">
                                                             <Image src={em.imageSrc} alt={em.label} fill className="object-contain" unoptimized />
@@ -217,7 +217,7 @@ export default function OggiMiSento() {
                             LIVELLO<br />IDRATAZIONE
                         </h3>
                         {/* Cursive text */}
-                        <p className="text-white text-[42px] mb-4 font-serif capitalize" style={{ fontStyle: 'italic', fontFamily: 'Georgia, serif' }}>
+                        <p className="text-white text-[22px] mb-4 font-semibold capitalize" style={{ fontStyle: 'italic', fontFamily: 'Georgia, serif' }}>
                             {getIdratazioneLevel()}
                         </p>
 
@@ -255,7 +255,7 @@ export default function OggiMiSento() {
                     </div>
 
                     {/* Right bottle illustration */}
-                    <div className="absolute right-4 bottom-0 top-6 z-10 w-[28%] flex items-end justify-center pointer-events-none pb-2">
+                    <div className="absolute right-3 bottom-0 top-4 z-10 w-[36%] flex items-end justify-center pointer-events-none pb-2">
                         <svg viewBox="0 0 100 240" className="w-[100%] h-[100%] overflow-visible drop-shadow-2xl" preserveAspectRatio="xMidYMax meet">
                             <defs>
                                 <clipPath id="bottleClip">

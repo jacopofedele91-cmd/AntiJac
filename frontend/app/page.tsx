@@ -288,10 +288,10 @@ export default function Home() {
                     </Link>
 
                     {/* RACCONTACI DI TE! */}
-                    <Link href="/oggi-mi-sento/chat" className="bg-[#DE4190] p-4 flex flex-col items-center justify-between text-center shadow-lg transition-transform hover:scale-[1.02] rounded-t-[2.5rem] rounded-br-[2.5rem] rounded-bl-sm relative min-h-[160px] overflow-hidden">
+                    <Link href="/oggi-mi-sento/chat" className="bg-[#DE4190] p-3 flex flex-col items-center justify-between text-center shadow-lg transition-transform hover:scale-[1.02] rounded-t-[2.5rem] rounded-br-[2.5rem] rounded-bl-sm relative min-h-[160px] overflow-hidden">
                         
                         <div className="w-full flex-shrink-0 mt-1 mb-2">
-                            <h2 className="text-white font-black text-[1.2rem] tracking-wider leading-tight uppercase drop-shadow-sm">Raccontaci<br />di te!</h2>
+                            <h2 className="text-white font-black text-[0.95rem] tracking-wide leading-tight uppercase drop-shadow-sm break-words">Raccontaci<br />di te!</h2>
                         </div>
                         
                         {/* Nuvoletta Gialla (pallone di risposta, spostata più in alto) */}

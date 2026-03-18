@@ -2,7 +2,8 @@
 
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Send, Shield, Heart, Flag, Pencil, Check } from 'lucide-react';
+import { ArrowLeft, Send, Shield, Heart, Flag, Pencil, Check, AlertTriangle } from 'lucide-react';
+import { moderateMessage } from '../../../lib/contentModeration';
 
 const TOPIC_ROOMS = [
     { id: 'prime-settimane', label: "Prime Settimane 🌱" },
@@ -11,12 +12,6 @@ const TOPIC_ROOMS = [
     { id: 'giornaliera', label: "Day By Day ☕" }
 ];
 
-// Profanity filter lato client (replica dello script Python di Livello 3)
-const BAD_WORDS = ["stronzo", "cazzo", "merda", "puttana", "idiota", "stupido"];
-function checkProfanity(text: string): boolean {
-    const lower = text.toLowerCase();
-    return BAD_WORDS.some(w => lower.includes(w));
-}
 
 const INITIAL_MESSAGES: Record<string, any[]> = {
     'prime-settimane': [
@@ -43,6 +38,7 @@ export default function CommunityChat() {
     const [tempAlias, setTempAlias] = useState("FarfallaLibera");
     const [isPosting, setIsPosting] = useState(false);
     const [errorMsg, setErrorMsg] = useState<string | null>(null);
+    const [blockedCategory, setBlockedCategory] = useState<string | null>(null);
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const aliasInputRef = useRef<HTMLInputElement>(null);
 
@@ -64,10 +60,13 @@ export default function CommunityChat() {
 
     const handleSendMessage = async () => {
         if (!newMessage.trim() || isPosting) return;
+        setBlockedCategory(null);
 
-        // Client-side profanity check
-        if (checkProfanity(newMessage)) {
-            setErrorMsg("Alcune parole non rispettano lo spirito gentile della community 🌸 Prova a modificarle.");
+        // Client-side content moderation
+        const modResult = moderateMessage(newMessage);
+        if (!modResult.allowed) {
+            setErrorMsg(modResult.userMessage ?? 'Messaggio non consentito.');
+            setBlockedCategory(modResult.category ?? null);
             return;
         }
 
@@ -269,7 +268,17 @@ export default function CommunityChat() {
                     </button>
                 </div>
                 {errorMsg && (
-                    <p className="text-[#DE4190] text-xs font-bold mt-2 text-center animate-pulse px-2">{errorMsg}</p>
+                    <div className="mt-2 flex items-start space-x-2 bg-[#FFF1F5] border border-[#DE4190]/30 rounded-xl px-3 py-2.5 animate-[shake_0.3s_ease-in-out]">
+                        <AlertTriangle className="w-4 h-4 text-[#DE4190] shrink-0 mt-0.5" />
+                        <div>
+                            {blockedCategory && (
+                                <span className="text-[10px] font-black uppercase tracking-wider text-[#DE4190] block mb-0.5">
+                                    Contenuto bloccato: {blockedCategory}
+                                </span>
+                            )}
+                            <p className="text-[#6F1A4A] text-xs font-semibold leading-snug">{errorMsg}</p>
+                        </div>
+                    </div>
                 )}
                 <p className="text-[10px] text-center text-gray-400 font-medium mt-2">
                     I messaggi sono filtrati automaticamente per mantenere la community sicura 🌸
