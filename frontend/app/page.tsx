@@ -168,12 +168,13 @@ export default function Home() {
                         <div className="absolute inset-0 bg-pink-light/70 mix-blend-multiply" />
                         <div className="absolute inset-0 bg-[#DE4190]/50" />
 
-                        <div className="relative z-10 w-full mb-1 mt-1">
-                            <h2 className="text-white font-black text-xl tracking-wider mb-2 drop-shadow-md">IDRATAZIONE</h2>
-                            <p className="text-white font-medium text-[11px] mb-1 leading-tight drop-shadow-sm">Il tuo livello di idratazione:</p>
-                        </div>
+                        <div className="relative z-10 w-full h-full flex flex-col items-center justify-between py-1">
+                            <div className="w-full">
+                                <h2 className="text-white font-black text-lg tracking-wide mb-1 drop-shadow-md">IDRATAZIONE</h2>
+                                <p className="text-white font-medium text-xs leading-tight drop-shadow-sm">Il tuo livello di idratazione:</p>
+                            </div>
 
-                        <div className="relative z-10 flex flex-col items-center justify-center w-full flex-1">
+                            <div className="relative z-10 flex flex-col items-center justify-center w-full flex-1">
                             <button onClick={handleAddWater} className="relative w-20 h-36 active:scale-95 transition-transform z-20 flex-shrink-0 mt-2 mb-1 flex items-end justify-center">
                                 {/* The requested bottle icon from "Oggi Mi Sento" adapted for the Home Page */}
                                 <svg viewBox="0 0 100 240" className="w-[100%] h-[100%] absolute inset-0 z-10 drop-shadow-md" preserveAspectRatio="xMidYMax meet">
@@ -211,6 +212,7 @@ export default function Home() {
                                 </div>
                                 <div className="text-[14px] font-bold opacity-100 bg-white/30 px-5 py-2 rounded-full inline-block border border-white/40 drop-shadow-sm shadow-inner tracking-wide">
                                     {glasses}/{maxGlasses} bicchieri
+                                </div>
                                 </div>
                             </div>
                         </div>
